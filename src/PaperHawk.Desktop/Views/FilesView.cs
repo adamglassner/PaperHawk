@@ -186,8 +186,8 @@ public sealed class FilesView : UserControl
         texts.Children.Add(Ui.Text(d.Title, size: 13.5, weight: FontWeights.SemiBold));
         var sub = new StackPanel { Orientation = Orientation.Horizontal };
         sub.Children.Add(Ui.Text(d.FileName, muted: true, size: 11.5));
-        if (d.NeedsSignature) sub.Children.Add(Tag("Sign", "Brush.Warn"));
-        else if (d.IsForm) sub.Children.Add(Tag("Form", "Brush.Accent"));
+        if (d.NeedsSignature) sub.Children.Add(TagPill("Sign", "Brush.Warn"));
+        else if (d.IsForm) sub.Children.Add(TagPill("Form", "Brush.Accent"));
         if (d.Shared) sub.Children.Add(Ui.Icon(Ic.People, 12, "Brush.TextMuted").Also(i => { i.Margin = new Thickness(8, 0, 0, 0); i.ToolTip = "Shared"; }));
         texts.Children.Add(sub);
         name.Children.Add(texts);
@@ -206,7 +206,7 @@ public sealed class FilesView : UserControl
         return b;
     }
 
-    private static Border Tag(string text, string brush)
+    private static Border TagPill(string text, string brush)
     {
         var t = Ui.Text(text, size: 10.5, weight: FontWeights.SemiBold, brushKey: brush);
         var pill = new Border { CornerRadius = new CornerRadius(8), Padding = new Thickness(7, 1, 7, 1), BorderThickness = new Thickness(1), Margin = new Thickness(8, 0, 0, 0), Child = t, VerticalAlignment = VerticalAlignment.Center };

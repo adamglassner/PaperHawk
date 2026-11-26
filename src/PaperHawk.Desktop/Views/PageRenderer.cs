@@ -6,6 +6,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using PaperHawk.Models;
+using Block = PaperHawk.Models.Block;
 
 namespace PaperHawk.Views;
 
