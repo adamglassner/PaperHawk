@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>PaperHawk</RootNamespace>
+    <AssemblyName>PaperHawk</AssemblyName>
+    <Product>PaperHawk</Product>
+    <Company>Bytehawk Studio</Company>
+    <Authors>Bytehawk Studio</Authors>
+    <Description>PaperHawk: view, comment on, sign and edit PDF files.</Description>
+    <!-- Releasing: change this and push to main. CI builds, tests and publishes GitHub Release v<Version>. -->
+    <Version>0.1.0</Version>
+    <Copyright>© 2026 Bytehawk Studio</Copyright>
+    <!-- Lets the project at least restore/compile on non-Windows machines; the app itself is Windows-only. -->
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ApplicationIcon>Assets\paperhawk.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <!-- Single-file publish (build.ps1): bundle WPF's native DLLs into the exe too. -->
+  <PropertyGroup Condition="'$(PublishSingleFile)' == 'true'">
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\paperhawk.ico" />
+    <Resource Include="Assets\paperhawk.png" />
+    <Resource Include="Assets\Fonts\*.ttf" />
+  </ItemGroup>
+
+</Project>
